@@ -25,15 +25,26 @@ fn main() {
 
         println!("You guessed: {guess}");
 
-        print!("Please input your guess");
+        println!("Please input your guess");
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => print!("Too small!"),
-            Ordering::Greater => print!("Too big!"),
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
-                print!("You win!");
+                println!("You win!");
                 break;
             }
         }
     }
+
+    another_function(5);
+    print_labeled_measurement(5, 'H');
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is {x}");
+}
+
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {value}{unit_label}");
 }
